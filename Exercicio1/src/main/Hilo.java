@@ -1,12 +1,9 @@
 package main;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class Hilo extends Thread{
     
-    private final String nombre;
-    private final int tiempo;
+    private final String nombre; // Nombre para identificar el hilo
+    private final int tiempo; // tiempo de delay que se le asigna al hilo
     
     public Hilo(String nombre, int tiempo){
         
@@ -17,6 +14,9 @@ public class Hilo extends Thread{
     
     @Override public void run() {
 
+        // Ejecuta 10 veces el hilo mostrandose por pantalla, 
+        // entre cada ejecución de bucle hay un tiempo de delay
+        
         for(int i = 0; i < 10; i++){
             
             System.out.println(i + " - " + nombre);
