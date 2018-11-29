@@ -4,18 +4,21 @@ public class Main {
 
     public static void main(String[] args) {
         
-        Hilo1 h1 = new Hilo1("fio1");
-        Hilo1 h2 = new Hilo1("fio2");
+        Hilo h1 = new Hilo("Hilo 1");
+        Hilo h2 = new Hilo("Hilo 2");
         
-        h1.setPriority(1);
-        h2.setPriority(10);
+        // Le doy prioridad al hilo 2
+        h1.setPriority(Thread.MIN_PRIORITY);
+        h2.setPriority(Thread.MAX_PRIORITY);
         
-        h2.start();
+        // Inicio los hilos
+        
         h1.start();        
+        h2.start();
         
         try {
             // Tiempo para dormir
-            h1.join(10);
+            h1.join(100);
         } catch (InterruptedException ex) {}
     }
     
