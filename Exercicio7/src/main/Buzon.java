@@ -42,6 +42,9 @@ public class Buzon {
             destinatario.correo = destinatario.nombre + ": " + mensaje + " -> Enviado por ( " + user.getNombre() + " )";
             System.out.println("Correo enviado al " + destinatario.nombre + " por " + user.getNombre());
             
+            // Hace que el destinatario lea el correo (DESCOMENTARLO EN CASO DE ACTIVAR UN SOLO BUZON)
+            destinatario.leerCorreo();
+            
             // Gestiona los tiempos de espera entre hilos sincronizados
             
             if (contador >= 2) {

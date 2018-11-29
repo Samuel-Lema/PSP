@@ -27,9 +27,9 @@ public class Usuario extends Thread {
         
         buzon.enviarCorreo(this, mensaje, destinatario);
         
-        // Hace que el destinatario lea el correo
+        // Hace que el destinatario lea el correo (DESCOMENTARLO EN CASO DE ACTIVAR VARIOS BUZONES)
         
-        destinatario.leerCorreo();
+        //destinatario.leerCorreo();
         
     }
 }
