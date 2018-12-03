@@ -7,7 +7,9 @@ public class Main {
     
     public static void main(String[] args) {
         
-        tortuga = new Animal("-> Tortuga", 0);
+        // Creo una tortuga y una libre
+        
+        tortuga = new Animal("Tortuga", 0);
         liebre = new Animal("Liebre", 1);
     }
     

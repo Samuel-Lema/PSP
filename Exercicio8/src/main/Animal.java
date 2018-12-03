@@ -1,8 +1,5 @@
 package main;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class Animal extends Thread {
 
     public final String nombre;
@@ -17,6 +14,8 @@ public class Animal extends Thread {
         this.start();
     }
 
+    // Gestiona los porcentajes de movimiento de cada turno. 
+     
     public synchronized void turno() {
 
         int mov = (int) (Math.random() * 100);
@@ -58,34 +57,37 @@ public class Animal extends Thread {
             }
         }
 
+        // Si pasa de la casilla 1 hacia la izquierda vuelve a la 1
+        
         if (casilla < 1) {
 
             casilla = 1;
         }
         
-        System.out.println(this.nombre + ": " + casilla);
+        // Muestra el nombre del animal y el número de casilla en el que esta.
         
-        notify();
-        try {
-            wait();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Animal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println(this.nombre + ": " + casilla);
     }
 
     @Override synchronized public void run() {
         
         try {
+            // Ejecuta los turnos hasta que alguien llegue a la casilla 70
+            
             while (casilla < 70) {
                 this.turno();
                 Animal.sleep(600);
             }
 
+            // Cuando alguien llega al 70 para al otro
+            
             switch (tipoAnimal) {
                 case 0: Main.liebre.stop(); break;
                 case 1: Main.tortuga.stop(); break;
                 default: System.out.println("WTF"); break;
             }
+            
+            // Muestra al ganador
             
             System.out.println(" -------------- La " + this.nombre + " ha ganado. --------------");
         } catch (InterruptedException ex) {}
